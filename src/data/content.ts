@@ -1,9 +1,9 @@
 export const siteInfo = {
   name: "SINIT Consulting",
-  description: "Consultoría integral en Inteligencia Artificial y Business Intelligence para PYMEs en Perú.",
-  whatsappNumber: "51999999999", // TODO: reemplazar
+  description: "Somos un equipo multidisciplinario que brindamos consultoría integral en Inteligencia Artificial y Business Intelligence para PYMEs en Perú.",
+  whatsappNumber: "51938869043", // TODO: reemplazar
   whatsappMessage: "Hola, quiero agendar mi diagnóstico gratis",
-  email: "contacto@sinit.pe", // TODO: reemplazar
+  email: "sinit.consulting@gmail.com", // TODO: reemplazar
   location: "Lima, Perú",
   privacyNote: "Tus datos solo se usarán para seguimiento comercial, conforme a la Ley N.° 29733 de Protección de Datos Personales del Perú.",
 };
@@ -12,8 +12,8 @@ export const services = [
   {
     id: "landing-pages",
     title: "Landing pages de conversión",
-    description: "Presencia digital que convierte visitas en conversaciones de venta.",
-    target: "Negocios que necesitan captar clientes online.",
+    description: "Presencia digital que permite que el cliente nos conozca, convierte visitas en prospectos y clientes.",
+    target: "Negocios que necesitan modernizarse y tener presencia en la web, captar clientes online y tener un medio de venta.",
     icon: "laptop"
   },
   {
@@ -25,9 +25,9 @@ export const services = [
   },
   {
     id: "chatbots-agenticos",
-    title: "Chatbots agénticos",
-    description: "Asistentes con IA que no solo responden preguntas, sino que ejecutan acciones (consultar catálogo, tomar pedidos, agendar citas) de forma autónoma.",
-    target: "Empresas con alto volumen de consultas o ventas por WhatsApp/RRSS.",
+    title: "Chatbots inteligentes",
+    description: "Asistentes con IA que no solo responden preguntas, sino que ejecutan acciones (consultar catálogo, tomar pedidos, agendar despachos) de forma autónoma.",
+    target: "Empresas con alto volumen de consultas o ventas por WhatsApp y Redes Sociales.",
     icon: "chat"
   },
   {
@@ -39,8 +39,8 @@ export const services = [
   },
   {
     id: "dashboards",
-    title: "Dashboards financieros y operativos",
-    description: "Paneles claros que muestran en tiempo real cómo va el negocio, sin depender de reportes manuales.",
+    title: "Dashboards financieros,comerciales y operativos",
+    description: "Cuadros y Paneles claros que muestran en tiempo real cómo va el negocio, sin depender de reportes manuales.",
     target: "Dueños que necesitan claridad para decidir con datos reales.",
     icon: "chart"
   }
