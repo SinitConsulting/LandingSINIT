@@ -25,3 +25,7 @@ pnpm-debug.log*
 
 # Local Netlify folder
 .netlify
+
+# Archivos de consulta 
+.impl*.md
+.walk*.md
