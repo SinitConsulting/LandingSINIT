@@ -1,0 +1,187 @@
+---
+import ContactButtons from './ContactButtons';
+---
+
+<section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden bg-zinc-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      
+      <!-- Text Content -->
+      <div class="max-w-2xl">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#F8FAFC] leading-tight mb-6">
+          Menos trabajo manual, <br/>
+          <span class="text-[#00C9FF]">más control de tu negocio.</span>
+        </h1>
+        <p class="text-lg sm:text-xl text-[#94A3B8] mb-8 leading-relaxed">
+          No solo instalamos chatbots o hacemos páginas web. Somos tu consultor integral de tecnología: 
+          automatizamos tus ventas para que dejes de perder tiempo y conectamos tus datos para que dejes de decidir "a ojo".
+        </p>
+        
+        <!-- Aquí necesitamos ContactButtons, pero este componente es TSX y podría estar usando clases Tailwind de text-brand-blue. 
+             Como no queremos modificar el original ahora mismo, lo dejamos igual y luego, si es necesario, le pasamos props o lo envolvemos. 
+             Pero para la prueba usaremos el mismo. -->
+        <div class="dark-mode-buttons">
+          <ContactButtons 
+            client:load 
+            sectionOrigin="hero" 
+            serviceInterest="general" 
+          />
+        </div>
+        
+        <p class="mt-4 text-sm text-[#94A3B8] italic">
+          Agenda un diagnóstico gratuito de 15 minutos.
+        </p>
+      </div>
+
+      <!-- Visual Element (Mockup Chatbot) -->
+      <div class="relative mx-auto w-full max-w-md">
+        <!-- Decoration -->
+        <div class="absolute inset-0 bg-[#00C9FF]/20 rounded-3xl blur-3xl transform rotate-6"></div>
+        
+        <!-- Chat UI -->
+        <div class="relative bg-zinc-700 rounded-3xl shadow-2xl border border-zinc-600 overflow-hidden">
+          <div class="bg-zinc-800 px-6 py-4 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-[#00C9FF] flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" class="text-[#0F172A]"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+            </div>
+            <div>
+              <h3 class="text-[#F8FAFC] font-bold text-sm">Asistente IA de Ventas</h3>
+              <p class="text-[#00C9FF] text-xs">En línea</p>
+            </div>
+          </div>
+          
+          <div class="p-6 space-y-4 bg-zinc-800 h-80 overflow-y-auto scroll-smooth" id="chat-sequence">
+            <!-- User message 1 -->
+            <div class="flex justify-end chat-bubble hidden" id="msg-1">
+              <div class="bg-[#00C9FF] text-[#0F172A] rounded-2xl rounded-tr-none px-4 py-2 max-w-[85%] text-sm shadow-sm font-medium">
+                ¡Hola! ¿tienen la zapatilla urbana en talla 40?
+              </div>
+            </div>
+            
+            <!-- Typing indicator 1 -->
+            <div class="flex justify-start chat-bubble hidden" id="typing-1">
+              <div class="bg-[#2ac4b0] text-[#0F172A] rounded-2xl rounded-tl-none px-4 py-3.5 max-w-[85%] shadow-sm border border-[#2ac4b0] flex items-center gap-1.5">
+                <div class="w-1.5 h-1.5 rounded-full bg-[#0F172A]/70 typing-dot"></div>
+                <div class="w-1.5 h-1.5 rounded-full bg-[#0F172A]/70 typing-dot"></div>
+                <div class="w-1.5 h-1.5 rounded-full bg-[#0F172A]/70 typing-dot"></div>
+              </div>
+            </div>
+
+            <!-- Bot message 1 -->
+            <div class="flex justify-start chat-bubble hidden" id="msg-2">
+              <div class="bg-[#2ac4b0] text-[#0F172A] rounded-2xl rounded-tl-none px-4 py-2 max-w-[85%] text-sm shadow-sm border border-[#2ac4b0]">
+                Hola 👋 Sí, tenemos talla 40 en stock. S/ 189, envío en 24h a Lima.
+              </div>
+            </div>
+
+            <!-- User message 2 -->
+            <div class="flex justify-end chat-bubble hidden" id="msg-3">
+              <div class="bg-[#00C9FF] text-[#0F172A] rounded-2xl rounded-tr-none px-4 py-2 max-w-[85%] text-sm shadow-sm font-medium">
+                Perfecto, la quiero. ¿Cómo pago?
+              </div>
+            </div>
+
+            <!-- Typing indicator 2 -->
+            <div class="flex justify-start chat-bubble hidden" id="typing-2">
+              <div class="bg-[#2ac4b0] text-[#0F172A] rounded-2xl rounded-tl-none px-4 py-3.5 max-w-[85%] shadow-sm border border-[#2ac4b0] flex items-center gap-1.5">
+                <div class="w-1.5 h-1.5 rounded-full bg-[#0F172A]/70 typing-dot"></div>
+                <div class="w-1.5 h-1.5 rounded-full bg-[#0F172A]/70 typing-dot"></div>
+                <div class="w-1.5 h-1.5 rounded-full bg-[#0F172A]/70 typing-dot"></div>
+              </div>
+            </div>
+
+            <!-- Bot message 2 -->
+            <div class="flex justify-start chat-bubble hidden" id="msg-4">
+              <div class="bg-[#2ac4b0] text-[#0F172A] rounded-2xl rounded-tl-none px-4 py-2 max-w-[85%] text-sm shadow-sm border border-[#2ac4b0]">
+                Yape, Plin o tarjeta. Te comparto el link de pago y me confirmas tu dirección 📦
+              </div>
+            </div>
+          </div>
+          
+          <div class="p-4 bg-zinc-700 border-t border-zinc-600 flex gap-2">
+            <div class="flex-1 bg-zinc-900 rounded-full px-4 py-2 text-zinc-300 text-sm">
+              Escribe un mensaje...
+            </div>
+            <div class="w-10 h-10 bg-[#00C9FF] rounded-full flex items-center justify-center text-[#0F172A]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<style>
+  .chat-bubble {
+    animation: chatSlideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  @keyframes chatSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .typing-dot {
+    animation: typingBounce 1.4s infinite ease-in-out both;
+  }
+  .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+  .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+  
+  @keyframes typingBounce {
+    0%, 80%, 100% { transform: scale(0); }
+    40% { transform: scale(1); }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('chat-sequence');
+    if (!container) return;
+
+    const sequence = [
+      { type: 'show', id: 'msg-1', wait: 1000 },
+      { type: 'show', id: 'typing-1', wait: 2000 },
+      { type: 'hide', id: 'typing-1' },
+      { type: 'show', id: 'msg-2', wait: 2500 },
+      { type: 'show', id: 'msg-3', wait: 1000 },
+      { type: 'show', id: 'typing-2', wait: 2000 },
+      { type: 'hide', id: 'typing-2' },
+      { type: 'show', id: 'msg-4', wait: 5000 },
+      { type: 'reset', wait: 500 }
+    ];
+
+    async function play() {
+      while (true) {
+        for (const step of sequence) {
+          if (step.type === 'reset') {
+            const bubbles = container.querySelectorAll('.chat-bubble');
+            bubbles.forEach(el => el.classList.add('hidden'));
+          } else if (step.type === 'show') {
+            const el = document.getElementById(step.id);
+            if (el) {
+                el.classList.remove('hidden');
+                container.scrollTop = container.scrollHeight;
+            }
+          } else if (step.type === 'hide') {
+            const el = document.getElementById(step.id);
+            if (el) el.classList.add('hidden');
+          }
+          
+          if (step.wait) {
+            await new Promise(r => setTimeout(r, step.wait));
+          }
+        }
+      }
+    }
+
+    play();
+  });
+</script>

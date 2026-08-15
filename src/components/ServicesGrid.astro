@@ -1,0 +1,59 @@
+---
+import { services } from '../data/content';
+
+// Helper component to render icons based on string
+const getIconSvg = (iconName: string) => {
+  switch(iconName) {
+    case 'laptop':
+      return `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"/></svg>`;
+    case 'cog':
+      return `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg>`;
+    case 'chat':
+      return `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>`;
+    case 'database':
+      return `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>`;
+    case 'chart':
+      return `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>`;
+    default:
+      return `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg>`;
+  }
+};
+---
+
+<section id="servicios" class="py-20 bg-[#0F172A]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold text-[#F8FAFC] mb-4">
+        Catálogo de Servicios
+      </h2>
+      <p class="text-lg text-[#94A3B8]">
+        Soluciones diseñadas para resolver tanto tu operación diaria como tu necesidad de información.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {services.map((service, index) => (
+        <div class="group p-8 rounded-2xl border-2 border-[#334155] hover:border-[#00C9FF] transition-colors flex flex-col h-full bg-[#1E293B] relative overflow-hidden shadow-sm hover:shadow-lg">
+          <!-- Decoración sutil de fondo al hover -->
+          <div class="absolute -right-12 -top-12 w-32 h-32 bg-[#00C9FF]/10 rounded-full blur-2xl group-hover:bg-[#00C9FF]/20 transition-colors"></div>
+          
+          <div class="relative z-10">
+            <div class="w-14 h-14 bg-[#0F172A] group-hover:bg-[#00C9FF]/10 text-[#2DD4BF] group-hover:text-[#00C9FF] rounded-xl flex items-center justify-center mb-6 transition-colors" set:html={getIconSvg(service.icon)}>
+            </div>
+            
+            <h3 class="text-xl font-bold text-[#F8FAFC] mb-3">{service.title}</h3>
+            
+            <p class="text-[#94A3B8] mb-6 leading-relaxed flex-grow">
+              {service.description}
+            </p>
+            
+            <div class="mt-auto pt-6 border-t border-[#334155]">
+              <span class="text-xs font-bold text-[#94A3B8] uppercase tracking-wider block mb-1">Ideal para:</span>
+              <p class="text-sm text-[#F8FAFC] font-medium">{service.target}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

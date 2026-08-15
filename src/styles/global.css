@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-blue: #0A2540;
+  --color-brand-cyan: #00C9FF;
+  --color-brand-white: #FFFFFF;
+  --color-brand-gray: #F5F5F5;
+  --font-sans: 'Inter', 'Poppins', sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-brand-white text-brand-blue font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+}

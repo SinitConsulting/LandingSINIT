@@ -1,0 +1,35 @@
+---
+import { processSteps } from '../data/content';
+---
+
+<section id="proceso" class="py-20 bg-[#0F172A]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold text-[#F8FAFC] mb-4">
+        Cómo trabajamos
+      </h2>
+      <p class="text-lg text-[#94A3B8]">
+        Cuatro pasos, sin letra chica.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {processSteps.map((step) => (
+        <div class="relative">
+          {/* Línea conectora (visible solo en desktop entre items) */}
+          <div class="hidden lg:block absolute top-8 left-full w-full h-px bg-[#00C9FF]/30 -ml-4 z-0"></div>
+          
+          <div class="bg-[#1E293B] p-6 rounded-2xl shadow-sm border border-[#334155] relative z-10 h-full flex flex-col items-center text-center">
+            <div class="w-16 h-16 bg-[#00C9FF] text-[#0F172A] rounded-full flex items-center justify-center text-2xl font-bold mb-6 shadow-md shadow-[#00C9FF]/20">
+              {step.number}
+            </div>
+            <h3 class="text-xl font-bold text-[#F8FAFC] mb-3">{step.title}</h3>
+            <p class="text-[#94A3B8] text-sm leading-relaxed">
+              {step.description}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
